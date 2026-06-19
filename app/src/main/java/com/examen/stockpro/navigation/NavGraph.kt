@@ -44,23 +44,6 @@ fun NavGraph(viewModel: StockViewModel) {
             )
         }
 
-        composable(
-            route = "edicion/{id}",
-            arguments = listOf(navArgument("id") { type = NavType.StringType })
-        ) { backStackEntry ->
-            val id = backStackEntry.arguments?.getString("id") ?: ""
-            EdicionStockScreen(
-                productoId = id,
-                viewModel = viewModel,
-                onGuardar = { navController.popBackStack() }
-            )
-        }
 
-        composable("reporte") {
-            ReporteFinancieroScreen(
-                viewModel = viewModel,
-                onVolver = { navController.popBackStack() }
-            )
-        }
     }
 }
